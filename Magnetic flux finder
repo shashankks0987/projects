@@ -1,0 +1,137 @@
+from scipy.integrate import dblquad
+from sympy import *
+import numpy as np
+c=int(input("Enter co-ordinate system:Cartesian-1,Cylindrical-2,Spherical-3"))
+dir=input("The direction of Magnetic field intensity B(1,2,3)")
+
+if c==1:
+    if dir==1:
+      y, z = symbols("y z")
+      f = raw_input("B=")
+      l1=float(input("Lower limit of Y"))
+      l2=float(input("Upper limit of Y"))
+      m1=float(input("Lower limit of Z"))
+      m2=float(input("Upper limit of Z"))
+      
+      res = integrate(f, (y, l1,l2 ), (z, m1, m2))
+      print("Flux through the surface= ")
+      print res
+    elif dir==2:
+      x, z = symbols("x z")
+      f = raw_input("B=")
+      l1=float(input("Lower limit of X"))
+      l2=float(input("Upper limit of X"))
+      m1=float(input("Lower limit of Z"))
+      m2=float(input("Upper limit of Z"))
+      
+      res = integrate(f, (x, l1,l2 ), (z, m1, m2))
+      print("Flux through the surface= ")
+      print res
+              
+    elif dir==3:
+      x, y = symbols("x y")
+      f = raw_input("B=")
+      l1=float(input("Lower limit of X"))
+      l2=float(input("Upper limit of X"))
+      m1=float(input("Lower limit of Y"))
+      m2=float(input("Upper limit of Y"))
+      
+      res = integrate(f, (x, l1,l2 ), (y, m1, m2))
+      print("Flux through the surface= ")
+      print res
+
+
+"end of cartesian"
+
+
+"cylindrical"
+
+      
+if c==2:
+    if dir==1:
+      r,fi,z = symbols(" r fi z")
+      f = input("B=")
+      g=f
+      l1=float(input("Lower limit of fi"))
+      l2=float(input("Upper limit of fi"))
+      m1=float(input("Lower limit of Z"))
+      m2=float(input("Upper limit of Z"))
+      
+      res = integrate(g*r, (fi, l1,l2 ), (z, m1, m2))
+      print("Flux through the surface= ")
+      print res
+    elif dir==2:
+      r,fi,z = symbols(" r fi z")
+      f = input("B=")
+      g=f
+      l1=float(input("Lower limit of r"))
+      l2=float(input("Upper limit of r"))
+      m1=float(input("Lower limit of z"))
+      m2=float(input("Upper limit of Z"))
+      
+      res = integrate(g, (r, l1,l2 ), (z, m1, m2))
+      print("Flux through the surface= ")
+      print res
+    elif dir==3:
+      r,fi,z = symbols(" r fi z")
+      f = input("B=")
+      g=f
+      l1=float(input("Lower limit of r"))
+      l2=float(input("Upper limit of r"))
+      m1=float(input("Lower limit of fi"))
+      m2=float(input("Upper limit of fi"))
+      
+      res = integrate(g*r, (r, l1,l2 ), (fi, m1, m2))
+      print("Flux through the surface= ")
+      print res
+
+"spherical"
+
+if c==3:
+    if dir==1:
+      r,fi,th = symbols(" r fi th")
+      f = input("B=")
+      g=f
+      l1=float(input("Lower limit of fi"))
+      l2=float(input("Upper limit of fi"))
+      m1=float(input("Lower limit of theta"))
+      m2=float(input("Upper limit of theta"))
+      
+
+      res = integrate(g*r*r*sin(th), (fi, l1,l2 ), (th, m1, m2))
+      print("Flux through the surface= ")
+      print res
+      
+    elif dir==2:
+      r,fi,th = symbols(" r fi th")
+      f = input("B=")
+      g=f
+      l1=float(input("Lower limit of r"))
+      l2=float(input("Upper limit of r"))
+      m1=float(input("Lower limit of theta"))
+      m2=float(input("Upper limit of theta"))
+      
+      res = integrate(g*r, (r, l1,l2 ), (th, m1, m2))
+      print("Flux through the surface= ")
+      print res
+    elif dir==3:
+      r,fi,th = symbols(" r fi th")
+      f = input("B=")
+      g=f
+      l1=float(input("Lower limit of r"))
+      l2=float(input("Upper limit of r"))
+      m1=float(input("Lower limit of fi"))
+      m2=float(input("Upper limit of fi"))
+      
+      res = integrate(g*r*sin(th), (r, l1,l2 ), (fi, m1, m2))
+      print("Flux through the surface= ")
+      print res
+        
+
+         
+    
+
+       
+
+
+
