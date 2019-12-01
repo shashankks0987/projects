@@ -1,0 +1,56 @@
+z=input('Enter number of rows')
+n=input('Enter number of columns')
+mat = [[int(input()) for x in range (0,z)] for y in range(0,n)]
+print mat
+def neighbors((i,j)):
+    neigh=[]
+    l=int(i)
+    e=int(j)
+    if l+1<z and mat[l+1][e]==1:
+                neigh.append((l+1,e))
+    if e+1<n and mat[l][e+1]==1:
+                neigh.append((l,e+1))
+    
+    return neigh
+
+goal = [(3,3)]
+path=[]
+explored=[]
+queue=[[(0,0)]]
+print queue[0]
+while queue:
+    path=queue.pop(0)
+    node = path[-1]
+    if node not in explored:
+        neighbours=neighbors((node))
+        for nei in neighbours:
+            
+            new_path=list(path)
+            new_path.append(nei)
+            queue.append(new_path)
+            if nei == goal[0]:
+                print 'found'
+                print new_path
+                exit()
+        explored.append(node)
+        
+        
+        
+        
+                
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
